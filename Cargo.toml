@@ -2,6 +2,5 @@
 name = "advent-of-code-2017"
 version = "0.1.0"
 authors = ["Observer42 <yishengxu@outlook.com>"]
-edition = "2018"
 
 [dependencies]
