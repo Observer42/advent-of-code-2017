@@ -14,23 +14,25 @@ pub fn solve() -> Result<()> {
 }
 
 fn generate_matrix(input: &str) -> Vec<Vec<u32>> {
-    input.lines()
+    input
+        .lines()
         .map(|line| {
             line.split_whitespace()
                 .filter_map(|digits| digits.parse::<u32>().ok())
                 .collect()
-        })
-        .collect()
+        }).collect()
 }
 
 fn solve_checksum_first(matrix: &[Vec<u32>]) -> u32 {
-    matrix.iter()
+    matrix
+        .iter()
         .map(|line| line.iter().max().unwrap() - line.iter().min().unwrap())
         .sum()
 }
 
 fn solve_checksum_second(matrix: &[Vec<u32>]) -> u32 {
-    matrix.iter()
+    matrix
+        .iter()
         .filter_map(|line| {
             for i in 0..(line.len() - 1) {
                 for j in (i + 1)..line.len() {
@@ -42,13 +44,12 @@ fn solve_checksum_second(matrix: &[Vec<u32>]) -> u32 {
                 }
             }
             None
-        })
-        .sum()
+        }).sum()
 }
 
 #[cfg(test)]
 mod tests {
-    use super::{solve_checksum_first, solve_checksum_second, generate_matrix};
+    use super::{generate_matrix, solve_checksum_first, solve_checksum_second};
 
     #[test]
     fn test_solve_checksum_first() {
