@@ -1,8 +1,7 @@
+use std::collections::HashMap;
 use std::fs::File;
 use std::io::Read;
 use std::io::Result;
-
-use std::collections::HashMap;
 
 pub fn solve() -> Result<()> {
     let mut file = File::open("src/input/06.txt")?;
