@@ -3,7 +3,7 @@ use std::io::Read;
 use std::io::Result;
 
 pub fn solve() -> Result<()> {
-    let mut file = File::open("src/input/01.txt")?;
+    let mut file = File::open("input/01.txt")?;
     let mut digits = String::new();
     file.read_to_string(&mut digits)?;
     let digits = digits.trim();

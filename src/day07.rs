@@ -11,7 +11,7 @@ struct Process<'a> {
 }
 
 pub fn solve() -> Result<()> {
-    let mut file = File::open("src/input/07.txt")?;
+    let mut file = File::open("input/07.txt")?;
     let mut input = String::new();
     file.read_to_string(&mut input)?;
 

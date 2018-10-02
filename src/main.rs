@@ -1,20 +1,22 @@
 use std::io::Result;
 
-mod day1;
-mod day2;
-mod day3;
-mod day4;
-mod day5;
-mod day6;
-mod day7;
+mod day01;
+mod day02;
+mod day03;
+mod day04;
+mod day05;
+mod day06;
+mod day07;
+mod day08;
 
 fn main() -> Result<()> {
-    day1::solve()?;
-    day2::solve()?;
-    day3::solve();
-    day4::solve()?;
-    day5::solve()?;
-    day6::solve()?;
-    day7::solve()?;
+    day01::solve()?;
+    day02::solve()?;
+    day03::solve();
+    day04::solve()?;
+    day05::solve()?;
+    day06::solve()?;
+    day07::solve()?;
+    day08::solve()?;
     Ok(())
 }

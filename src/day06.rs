@@ -4,7 +4,7 @@ use std::io::Read;
 use std::io::Result;
 
 pub fn solve() -> Result<()> {
-    let mut file = File::open("src/input/06.txt")?;
+    let mut file = File::open("input/06.txt")?;
     let mut input = String::new();
     file.read_to_string(&mut input)?;
 
