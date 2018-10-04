@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::Read;
 use std::io::Result;
 
-static SUFFIX: [u8; 5] = [17, 31, 73, 47, 23];
+const SUFFIX: [u8; 5] = [17, 31, 73, 47, 23];
 
 pub fn solve() -> Result<()> {
     let mut file = File::open("input/10.txt")?;
@@ -22,7 +22,7 @@ pub fn solve() -> Result<()> {
 
 fn solve_first(input: &[u8], list_size: usize) -> u32 {
     let hash = knot_hash(input, list_size, 1);
-    hash[0] as u32 * hash[1] as u32
+    u32::from(hash[0]) * u32::from(hash[1])
 }
 
 fn solve_second(input: String, list_size: usize) -> String {
@@ -33,7 +33,7 @@ fn solve_second(input: String, list_size: usize) -> String {
     let mut res: u128 = 0;
     for chunk in hash.chunks(16) {
         res <<= 8;
-        res |= chunk.iter().fold(0u8, |a, b| a ^ b) as u128;
+        res |= u128::from(chunk.iter().fold(0u8, |a, b| a ^ b));
     }
     format!("{:0x}", res)
 }
