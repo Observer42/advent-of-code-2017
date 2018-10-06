@@ -43,12 +43,11 @@ fn solve_first(input: &HashMap<u32, u32>) -> u32 {
 
 fn solve_second(input: &HashMap<u32, u32>) -> u32 {
     (0..)
-        .filter(|wait| {
+        .find(|wait| {
             !input
                 .iter()
                 .any(|(&depth, &range)| (wait + depth) % (2 * (range - 1)) == 0)
-        }).next()
-        .unwrap()
+        }).unwrap()
 }
 
 #[cfg(test)]
