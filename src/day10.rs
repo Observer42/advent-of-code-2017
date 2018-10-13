@@ -16,7 +16,7 @@ pub fn solve() -> Result<()> {
     let input_second = input.trim().to_string();
 
     println!("day 10 first: {}", solve_first(parse_first, 256));
-    println!("day 10 second: {}", solve_second(input_second, 256));
+    println!("day 10 second: {:x}", solve_second(input_second, 256));
     Ok(())
 }
 
