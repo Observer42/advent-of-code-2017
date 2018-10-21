@@ -18,6 +18,7 @@ mod day15;
 mod day16;
 mod day17;
 mod day18;
+mod day19;
 
 fn main() -> Result<()> {
     day01::solve()?;
@@ -38,5 +39,6 @@ fn main() -> Result<()> {
     day16::solve()?;
     day17::solve();
     day18::solve()?;
+    day19::solve()?;
     Ok(())
 }
