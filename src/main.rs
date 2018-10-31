@@ -1,3 +1,6 @@
+#[macro_use]
+extern crate ndarray;
+
 use std::io::Result;
 
 mod day01;
@@ -20,6 +23,7 @@ mod day17;
 mod day18;
 mod day19;
 mod day20;
+mod day21;
 
 fn main() -> Result<()> {
     day01::solve()?;
@@ -42,5 +46,6 @@ fn main() -> Result<()> {
     day18::solve()?;
     day19::solve()?;
     day20::solve()?;
+    day21::solve()?;
     Ok(())
 }
