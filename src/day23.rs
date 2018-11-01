@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::fs::File;
 use std::io::Read;
 use std::io::Result;
@@ -11,6 +11,7 @@ pub fn solve() -> Result<()> {
     let instructions = parse_input(&raw_input);
 
     println!("day 23 first: {}", solve_first(&instructions));
+    println!("day 23 second: {}", solve_second());
 
     Ok(())
 }
@@ -60,6 +61,39 @@ fn solve_first(instructions: &[Instruction]) -> i64 {
     }
 
     count
+}
+
+fn solve_second() -> usize {
+    //here I use 'b' and 'c' and step generated in 23.txt directly
+    let begin = 107_900;
+    let end = 124_900;
+    let step = 17;
+    let primes = generate_primes(f64::from(end).sqrt() as i32 + 1);
+    (begin..=end)
+        .step_by(step)
+        .filter(|num| {
+            for p in primes.iter() {
+                if *num % *p == 0 {
+                    return true;
+                }
+            }
+            false
+        }).count()
+}
+
+fn generate_primes(upper: i32) -> HashSet<i32> {
+    let mut primes = HashSet::new();
+    primes.insert(2);
+    (3..=upper).for_each(|num| {
+        for p in primes.iter() {
+            if num % *p == 0 {
+                return;
+            }
+        }
+        primes.insert(num);
+    });
+
+    primes
 }
 
 struct Process {
