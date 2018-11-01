@@ -25,6 +25,7 @@ mod day19;
 mod day20;
 mod day21;
 mod day22;
+mod day23;
 
 fn main() -> Result<()> {
     day01::solve()?;
@@ -49,5 +50,6 @@ fn main() -> Result<()> {
     day20::solve()?;
     day21::solve()?;
     day22::solve()?;
+    day23::solve()?;
     Ok(())
 }
