@@ -27,9 +27,9 @@ fn parse_input(input: &str) -> HashMap<Array2<bool>, Array2<bool>> {
         let mut key = parse_square(squares[0]);
         let val = parse_square(squares[1]);
         for _ in 0..4 {
-            res.entry(key.clone()).or_insert(val.clone());
+            res.entry(key.clone()).or_insert_with(|| val.clone());
             key.swap_axes(0, 1);
-            res.entry(key.clone()).or_insert(val.clone());
+            res.entry(key.clone()).or_insert_with(|| val.clone());
             key.invert_axis(Axis(0));
         }
     });
@@ -103,6 +103,6 @@ mod tests {
     #[test]
     fn test_solve_general() {
         let transform = parse_input(".#./#../### => ####/####/####/####");
-        assert_eq!(16, solve_general(1, &transform));
+        assert_eq!(solve_general(1, &transform), 16);
     }
 }
